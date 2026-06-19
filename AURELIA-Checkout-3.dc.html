@@ -438,10 +438,50 @@ class Component extends DCLogic {
   }
   fmtBytes(n) { if (n < 1024) return n + ' B'; if (n < 1048576) return (n / 1024).toFixed(0) + ' KB'; return (n / 1048576).toFixed(1) + ' MB'; }
 
+  dataUrlToFile(dataUrl, filename) {
+    const comma = dataUrl.indexOf(',');
+    const meta = dataUrl.slice(0, comma), b64 = dataUrl.slice(comma + 1);
+    const mime = (meta.match(/:(.*?);/) || [])[1] || 'image/png';
+    const bin = atob(b64), arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return new File([arr], filename, { type: mime });
+  }
+
+  // Draw a faux "payment sent" screenshot so AUTO-FILL can simulate an uploaded proof.
+  makeProofImage(amount) {
+    const w = 380, h = 232, c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    const x = c.getContext('2d');
+    x.fillStyle = '#0d1117'; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#0a0e13'; x.fillRect(0, 0, w, 50);
+    x.fillStyle = '#2ee6e6'; x.font = "600 14px 'Space Grotesk',system-ui,sans-serif";
+    x.fillText('Zelle', 20, 31);
+    x.fillStyle = '#7fa0a3'; x.font = "11px 'IBM Plex Mono',monospace";
+    x.fillText('PAYMENT SENT', w - 128, 31);
+    x.strokeStyle = '#33d17a'; x.lineWidth = 3; x.lineCap = 'round';
+    x.beginPath(); x.arc(w / 2, 94, 21, 0, 7); x.stroke();
+    x.beginPath(); x.moveTo(w / 2 - 9, 94); x.lineTo(w / 2 - 2, 101); x.lineTo(w / 2 + 11, 86); x.stroke();
+    x.textAlign = 'center';
+    x.fillStyle = '#eaf6f7'; x.font = "600 30px 'Space Grotesk',system-ui,sans-serif";
+    x.fillText('$' + amount, w / 2, 150);
+    x.fillStyle = '#9fbabc'; x.font = "13px 'Space Grotesk',system-ui,sans-serif";
+    x.fillText('Sent to AURELIA LABS', w / 2, 175);
+    x.fillStyle = '#5f7d80'; x.font = "10px 'IBM Plex Mono',monospace";
+    x.fillText('CONF #ZEL-7F3A92K · JUN 19 2026', w / 2, 199);
+    x.textAlign = 'left';
+    return c.toDataURL('image/png');
+  }
+
   fillSample() {
+    const form = { email: 'j.okafor@aurelia-labs.example', first: 'Jordan', last: 'Okafor', phone: '(555) 012-3456', address: '100 Research Blvd, Cambridge, MA 02139', amount: '250.00' };
+    // Simulate an uploaded proof of payment so the order can be submitted in one click.
+    if (this.state.proofUrl) { try { URL.revokeObjectURL(this.state.proofUrl); } catch (e) {} }
+    const file = this.dataUrlToFile(this.makeProofImage(form.amount), 'zelle-confirmation.png');
+    const url = URL.createObjectURL(file);
     this.setState({
-      form: { email: 'j.okafor@aurelia-labs.example', first: 'Jordan', last: 'Okafor', phone: '(555) 012-3456', address: '100 Research Blvd, Cambridge, MA 02139', amount: '250.00' },
-      touched: { email: true, first: true, last: true, phone: true, address: true, amount: true }
+      form,
+      proof: file, proofUrl: url,
+      touched: { email: true, first: true, last: true, phone: true, address: true, amount: true, proof: true }
     });
   }
 
