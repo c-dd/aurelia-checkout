@@ -172,7 +172,7 @@
 
         <div style="margin-bottom:18px;padding:14px 16px;border:1px solid rgba(46,230,230,.2);border-radius:10px;background:#0a0e13;">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7fa0a3;text-transform:uppercase;margin-bottom:8px;">How to pay</div>
-          <div style="font-size:13px;line-height:1.55;color:#9fbabc;">Send the amount above to <b style="color:#eaf6f7;font-weight:500;">pay@amia-labs.example</b> (Zelle / bank transfer), then upload a screenshot or photo of the confirmation. Include your name in the transfer note.</div>
+          <div style="font-size:13px;line-height:1.55;color:#9fbabc;">Send the amount above to <b style="color:#eaf6f7;font-weight:500;">pay@amia-labs.com</b> (Zelle / bank transfer), then upload a screenshot or photo of the confirmation. Include your name in the transfer note.</div>
         </div>
 
         <div style="margin-bottom:30px;">
@@ -212,7 +212,7 @@
     </section>
 
     <footer style="border-top:1px solid rgba(255,255,255,.07);">
-      <div style="max-width:1140px;margin:0 auto;padding:28px 32px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#5f7d80;line-height:1.9;">SUPPORT@AMIA-LABS.EXAMPLE · +1 (800) 555-0142<br>© 2026 AMIA LABS · ALL RIGHTS RESERVED</div>
+      <div style="max-width:1140px;margin:0 auto;padding:28px 32px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#5f7d80;line-height:1.9;">SUPPORT@AMIA-LABS.COM · +1 (800) 555-0142<br>© 2026 AMIA LABS · ALL RIGHTS RESERVED</div>
     </footer>
 
   </div>
@@ -473,7 +473,7 @@ class Component extends DCLogic {
   }
 
   fillSample() {
-    const form = { email: 'j.okafor@amia-labs.example', first: 'Jordan', last: 'Okafor', phone: '(555) 012-3456', address: '100 Research Blvd, Cambridge, MA 02139', amount: '250.00' };
+    const form = { email: 'j.okafor@amia-labs.com', first: 'Jordan', last: 'Okafor', phone: '(555) 012-3456', address: '100 Research Blvd, Cambridge, MA 02139', amount: '250.00' };
     // Simulate an uploaded proof of payment so the order can be submitted in one click.
     if (this.state.proofUrl) { try { URL.revokeObjectURL(this.state.proofUrl); } catch (e) {} }
     const file = this.dataUrlToFile(this.makeProofImage(form.amount), 'zelle-confirmation.png');
