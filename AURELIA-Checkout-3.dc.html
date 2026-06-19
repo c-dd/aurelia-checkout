@@ -20,7 +20,6 @@
   @keyframes auFade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
   @keyframes auUp{from{transform:translateY(16px)}to{transform:translateY(0)}}
   @keyframes auSpin{to{transform:rotate(360deg)}}
-  [data-m="lbl-short"]{display:none;}
   @media (max-width:720px){
     [data-m="hdr"]{padding:12px 18px !important;}
     [data-m="nav-desktop"]{display:none !important;}
@@ -30,8 +29,6 @@
     [data-m="hero-fig"]{display:none !important;}
     [data-m="gate-h1"]{font-size:38px !important;}
     [data-m="formsec"]{padding-left:20px !important;padding-right:20px !important;}
-    [data-m="prodgrid"]{grid-template-columns:1fr !important;}
-    [data-m="thanks"]{padding-left:20px !important;padding-right:20px !important;}
   }
 </style>
 <script src="aurelia-molecule.js"></script>
@@ -84,8 +81,8 @@
         </div>
         <nav data-m="nav-desktop" style="display:flex;align-items:center;gap:28px;">
           <a href="AURELIA.dc.html" style-hover="color:#2ee6e6" style="text-decoration:none;font-family:'Space Grotesk';font-weight:500;font-size:13px;letter-spacing:.01em;color:#9fbabc;transition:color .15s;">Checkout</a>
-          <a href="AURELIA-Checkout-2.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.01em;color:#2ee6e6;">Checkout #2</a>
-          <a href="AURELIA-Checkout-3.dc.html" style-hover="color:#2ee6e6" style="text-decoration:none;font-family:'Space Grotesk';font-weight:500;font-size:13px;letter-spacing:.01em;color:#9fbabc;transition:color .15s;">Proof Checkout</a>
+          <a href="AURELIA-Checkout-2.dc.html" style-hover="color:#2ee6e6" style="text-decoration:none;font-family:'Space Grotesk';font-weight:500;font-size:13px;letter-spacing:.01em;color:#9fbabc;transition:color .15s;">Checkout #2</a>
+          <a href="AURELIA-Checkout-3.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.01em;color:#2ee6e6;">Proof Checkout</a>
         </nav>
         <button data-m="nav-burger" onClick="{{ toggleNav }}" aria-label="Menu" style="display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px 4px;">
           <span style="display:block;width:22px;height:2px;background:#eaf6f7;border-radius:2px;"></span>
@@ -97,8 +94,8 @@
         <div style="border-top:1px solid rgba(255,255,255,.08);background:rgba(6,8,12,.97);">
           <div style="max-width:1140px;margin:0 auto;padding:6px 18px 12px;display:flex;flex-direction:column;">
             <a href="AURELIA.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:500;font-size:15px;color:#9fbabc;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.06);">Checkout</a>
-            <a href="AURELIA-Checkout-2.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#2ee6e6;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.06);">Checkout #2</a>
-            <a href="AURELIA-Checkout-3.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:500;font-size:15px;color:#9fbabc;padding:14px 4px;">Proof Checkout</a>
+            <a href="AURELIA-Checkout-2.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:500;font-size:15px;color:#9fbabc;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.06);">Checkout #2</a>
+            <a href="AURELIA-Checkout-3.dc.html" style="text-decoration:none;font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#2ee6e6;padding:14px 4px;">Proof Checkout</a>
           </div>
         </div>
       </sc-if>
@@ -122,67 +119,8 @@
       <div style="max-width:680px;margin:0 auto;">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.34em;color:#2ee6e6;margin-bottom:14px;margin-top:44px;">PLACE YOUR ORDER</div>
         <h2 style="font-weight:500;font-size:34px;letter-spacing:-.02em;margin:0 0 10px;color:#f4fbfb;">Complete your order</h2>
-        <p style="font-size:14px;color:#9fbabc;margin:0 0 16px;">Enter your details below. <b style="color:#eaf6f7;font-weight:500;">Test mode</b> — no real payment is processed.</p>
+        <p style="font-size:14px;color:#9fbabc;margin:0 0 16px;">Send your payment, then enter your details and <b style="color:#eaf6f7;font-weight:500;">upload proof of payment</b> below. We'll verify and confirm by email.</p>
         <button onClick="{{ fillSample }}" style-hover="background:rgba(46,230,230,.12);border-color:#2ee6e6" style-active="transform:scale(.98)" style="margin:0 0 34px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#2ee6e6;background:transparent;border:1px solid rgba(46,230,230,.4);border-radius:7px;padding:10px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,border-color .15s,transform .12s;">⚡ AUTO-FILL SAMPLE DATA</button>
-
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#5f7d80;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08);">Select a product</div>
-
-        <div data-m="prodgrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;">
-          <div onClick="{{ selectKLOW }}" style-hover="border-color:rgba(46,230,230,.45)" style="position:relative;cursor:pointer;border:1.5px solid {{ borderKLOW }};background:{{ bgKLOW }};border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;transition:border-color .15s,background .15s;">
-            <img src="products/klow.png" alt="KLOW vial" style="width:54px;height:54px;object-fit:contain;flex:none;"/>
-            <div style="flex:1;min-width:0;">
-              <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#eaf6f7;">KLOW</div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:#5f7d80;margin-top:3px;">RESEARCH PEPTIDE</div>
-            </div>
-            <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#2ee6e6;">$180</div>
-            <div style="position:absolute;top:9px;right:9px;width:17px;height:17px;border-radius:50%;background:#2ee6e6;display:flex;align-items:center;justify-content:center;color:#06080c;font-size:11px;font-weight:700;opacity:{{ checkKLOW }};transition:opacity .15s;">✓</div>
-          </div>
-          <div onClick="{{ selectRT15 }}" style-hover="border-color:rgba(46,230,230,.45)" style="position:relative;cursor:pointer;border:1.5px solid {{ borderRT15 }};background:{{ bgRT15 }};border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;transition:border-color .15s,background .15s;">
-            <img src="products/rt15.png" alt="RT-15 10MG vial" style="width:54px;height:54px;object-fit:contain;flex:none;"/>
-            <div style="flex:1;min-width:0;">
-              <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#eaf6f7;">RT-15 10MG</div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:#5f7d80;margin-top:3px;">RESEARCH PEPTIDE</div>
-            </div>
-            <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#2ee6e6;">$240</div>
-            <div style="position:absolute;top:9px;right:9px;width:17px;height:17px;border-radius:50%;background:#2ee6e6;display:flex;align-items:center;justify-content:center;color:#06080c;font-size:11px;font-weight:700;opacity:{{ checkRT15 }};transition:opacity .15s;">✓</div>
-          </div>
-          <div onClick="{{ selectSS31 }}" style-hover="border-color:rgba(46,230,230,.45)" style="position:relative;cursor:pointer;border:1.5px solid {{ borderSS31 }};background:{{ bgSS31 }};border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;transition:border-color .15s,background .15s;">
-            <img src="products/ss31.png" alt="SS-31 vial" style="width:54px;height:54px;object-fit:contain;flex:none;"/>
-            <div style="flex:1;min-width:0;">
-              <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#eaf6f7;">SS-31</div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:#5f7d80;margin-top:3px;">RESEARCH PEPTIDE</div>
-            </div>
-            <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#2ee6e6;">$210</div>
-            <div style="position:absolute;top:9px;right:9px;width:17px;height:17px;border-radius:50%;background:#2ee6e6;display:flex;align-items:center;justify-content:center;color:#06080c;font-size:11px;font-weight:700;opacity:{{ checkSS31 }};transition:opacity .15s;">✓</div>
-          </div>
-          <div onClick="{{ selectCUSTOM }}" style-hover="border-color:rgba(46,230,230,.45)" style="position:relative;cursor:pointer;border:1.5px solid {{ borderCUSTOM }};background:{{ bgCUSTOM }};border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;transition:border-color .15s,background .15s;">
-            <img src="products/custom.png" alt="Custom vial" style="width:54px;height:54px;object-fit:contain;flex:none;"/>
-            <div style="flex:1;min-width:0;">
-              <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#eaf6f7;">Custom Order</div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:#5f7d80;margin-top:3px;">SET YOUR AMOUNT</div>
-            </div>
-            <div style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#7fa0a3;">$ —</div>
-            <div style="position:absolute;top:9px;right:9px;width:17px;height:17px;border-radius:50%;background:#2ee6e6;display:flex;align-items:center;justify-content:center;color:#06080c;font-size:11px;font-weight:700;opacity:{{ checkCUSTOM }};transition:opacity .15s;">✓</div>
-          </div>
-        </div>
-
-        <sc-if value="{{ isCustom }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-bottom:16px;">
-            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">Custom order amount (USD)</label>
-            <div style="position:relative;">
-              <span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#7fa0a3;font-size:15px;">$</span>
-              <input value="{{ val_amount }}" onChange="{{ on_amount }}" onBlur="{{ blur_amount }}" inputMode="decimal" placeholder="Enter amount" style-focus="border-color:#2ee6e6;box-shadow:0 0 0 3px rgba(46,230,230,.14)" style="width:100%;background:#0a0e13;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:13px 14px 13px 28px;color:#eaf6f7;font-family:'Space Grotesk';font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s;">
-            </div>
-            <sc-if value="{{ show_amount }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_amount }}</div></sc-if>
-          </div>
-        </sc-if>
-
-        <sc-if value="{{ show_productErr }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin:-4px 0 14px;letter-spacing:.03em;">Select a product to continue</div></sc-if>
-
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding:14px 16px;border:1px solid rgba(46,230,230,.2);border-radius:10px;background:#0a0e13;">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9fbabc;">{{ orderSummaryLabel }}</span>
-          <span style="font-family:'Space Grotesk';font-weight:600;font-size:17px;color:#2ee6e6;">{{ orderSummaryAmount }}</span>
-        </div>
 
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#5f7d80;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08);">Contact &amp; shipping</div>
 
@@ -217,46 +155,59 @@
           <sc-if value="{{ show_address }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_address }}</div></sc-if>
         </div>
 
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#5f7d80;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08);">Amount</div>
+
+        <div style="margin-bottom:28px;">
+          <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">Order amount (USD)</label>
+          <div style="position:relative;">
+            <span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#7fa0a3;font-size:15px;">$</span>
+            <input value="{{ val_amount }}" onChange="{{ on_amount }}" onBlur="{{ blur_amount }}" inputMode="decimal" placeholder="250.00" style-focus="border-color:#2ee6e6;box-shadow:0 0 0 3px rgba(46,230,230,.14)" style="width:100%;background:#0a0e13;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:13px 14px 13px 28px;color:#eaf6f7;font-family:'Space Grotesk';font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s;">
+          </div>
+          <sc-if value="{{ show_amount }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_amount }}</div></sc-if>
+        </div>
+
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08);">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#5f7d80;text-transform:uppercase;">Payment</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#06080c;background:#2ee6e6;border-radius:4px;padding:3px 8px;">TEST MODE</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#5f7d80;text-transform:uppercase;">Proof of payment</span>
         </div>
 
-        <div style="margin-bottom:16px;">
-          <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">Card number</label>
-          <input value="{{ val_card }}" onChange="{{ on_card }}" onBlur="{{ blur_card }}" inputMode="numeric" placeholder="4242 4242 4242 4242" style-focus="border-color:#2ee6e6;box-shadow:0 0 0 3px rgba(46,230,230,.14)" style="width:100%;background:#0a0e13;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:13px 14px;color:#eaf6f7;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.06em;outline:none;transition:border-color .15s,box-shadow .15s;">
-          <sc-if value="{{ show_card }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_card }}</div></sc-if>
-        </div>
-
-        <div style="display:flex;gap:14px;flex-wrap:wrap;">
-          <div style="flex:1 1 150px;margin-bottom:16px;">
-            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">Expiry (MM/YY)</label>
-            <input value="{{ val_exp }}" onChange="{{ on_exp }}" onBlur="{{ blur_exp }}" inputMode="numeric" placeholder="08/28" style-focus="border-color:#2ee6e6;box-shadow:0 0 0 3px rgba(46,230,230,.14)" style="width:100%;background:#0a0e13;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:13px 14px;color:#eaf6f7;font-family:'IBM Plex Mono',monospace;font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s;">
-            <sc-if value="{{ show_exp }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_exp }}</div></sc-if>
-          </div>
-          <div style="flex:1 1 150px;margin-bottom:16px;">
-            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">CVC</label>
-            <input value="{{ val_cvc }}" onChange="{{ on_cvc }}" onBlur="{{ blur_cvc }}" inputMode="numeric" placeholder="123" style-focus="border-color:#2ee6e6;box-shadow:0 0 0 3px rgba(46,230,230,.14)" style="width:100%;background:#0a0e13;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:13px 14px;color:#eaf6f7;font-family:'IBM Plex Mono',monospace;font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s;">
-            <sc-if value="{{ show_cvc }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_cvc }}</div></sc-if>
-          </div>
+        <div style="margin-bottom:18px;padding:14px 16px;border:1px solid rgba(46,230,230,.2);border-radius:10px;background:#0a0e13;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7fa0a3;text-transform:uppercase;margin-bottom:8px;">How to pay</div>
+          <div style="font-size:13px;line-height:1.55;color:#9fbabc;">Send the amount above to <b style="color:#eaf6f7;font-weight:500;">pay@aurelia-labs.example</b> (Zelle / bank transfer), then upload a screenshot or photo of the confirmation. Include your name in the transfer note.</div>
         </div>
 
         <div style="margin-bottom:30px;">
-          <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">Name on card</label>
-          <input value="{{ val_cardName }}" onChange="{{ on_cardName }}" onBlur="{{ blur_cardName }}" placeholder="JANE DOE" style-focus="border-color:#2ee6e6;box-shadow:0 0 0 3px rgba(46,230,230,.14)" style="width:100%;background:#0a0e13;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:13px 14px;color:#eaf6f7;font-family:'Space Grotesk';font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s;">
-          <sc-if value="{{ show_cardName }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">{{ err_cardName }}</div></sc-if>
+          <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7fa0a3;margin-bottom:7px;">Upload proof (image or PDF)</label>
+          <input ref="{{ refFile }}" onChange="{{ on_file }}" type="file" accept="image/*,application/pdf" style="display:none;">
+          <sc-if value="{{ noProof }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ pickFile }}" style-hover="border-color:rgba(46,230,230,.5);background:rgba(46,230,230,.05)" style="cursor:pointer;border:1.5px dashed rgba(46,230,230,.4);border-radius:12px;padding:30px 20px;text-align:center;background:#0a0e13;transition:border-color .15s,background .15s;">
+              <div style="width:44px;height:44px;border-radius:50%;border:1.5px solid #2ee6e6;display:flex;align-items:center;justify-content:center;color:#2ee6e6;font-size:22px;margin:0 auto 12px;">↑</div>
+              <div style="font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#eaf6f7;margin-bottom:4px;">Tap to upload proof</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#5f7d80;">PNG, JPG OR PDF · MAX 10MB</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hasProof }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:14px;border:1.5px solid #2ee6e6;border-radius:12px;padding:14px 16px;background:rgba(46,230,230,.06);">
+              <div style="flex:none;width:48px;height:48px;border-radius:8px;overflow:hidden;background:#06080c;display:flex;align-items:center;justify-content:center;">{{ proofThumb }}</div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#eaf6f7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ proofName }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#2ee6e6;margin-top:3px;">✓ ATTACHED · {{ proofSize }}</div>
+              </div>
+              <div onClick="{{ clearFile }}" style-hover="color:#ff6b6b;border-color:#ff6b6b" style="flex:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#7fa0a3;border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:7px 10px;transition:color .15s,border-color .15s;">REMOVE</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ show_proof }}" hint-placeholder-val="{{ false }}"><div style="color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;letter-spacing:.03em;">Upload your proof of payment to continue</div></sc-if>
         </div>
 
         <button onClick="{{ submit }}" style-hover="filter:brightness(1.08)" style-active="transform:scale(.99)" style="width:100%;font-weight:600;font-size:15px;letter-spacing:.1em;color:#06080c;background:#2ee6e6;border:none;border-radius:10px;padding:17px 0;cursor:pointer;font-family:'Space Grotesk';opacity:{{ submitOp }};transition:opacity .2s,filter .15s,transform .1s;box-shadow:0 0 30px rgba(46,230,230,.35);display:flex;align-items:center;justify-content:center;gap:10px;">
           <sc-if value="{{ processing }}" hint-placeholder-val="{{ false }}">
             <span style="display:inline-block;width:15px;height:15px;border:2px solid rgba(6,8,12,.3);border-top-color:#06080c;border-radius:50%;animation:auSpin .7s linear infinite;"></span>
-            <span>Processing payment…</span>
+            <span>Submitting…</span>
           </sc-if>
           <sc-if value="{{ notProcessing }}" hint-placeholder-val="{{ true }}">
             <span>{{ payLabel }} →</span>
           </sc-if>
         </button>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:#4d6669;margin-top:18px;text-align:center;">FOR RESEARCH USE ONLY · NOT FOR HUMAN CONSUMPTION · SIMULATED PAYMENT</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:#4d6669;margin-top:18px;text-align:center;">FOR RESEARCH USE ONLY · NOT FOR HUMAN CONSUMPTION · ORDER CONFIRMED AFTER PROOF IS VERIFIED</div>
       </div>
     </section>
 
@@ -272,9 +223,9 @@
   <div style="min-height:100vh;background:#06080c;color:#eaf6f7;font-family:'Space Grotesk',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:48px 24px;">
     <div style="max-width:520px;width:100%;text-align:center;animation:auUp .5s ease both;">
       <div style="width:72px;height:72px;border-radius:50%;border:2px solid #2ee6e6;display:flex;align-items:center;justify-content:center;color:#2ee6e6;font-size:34px;margin:0 auto 26px;box-shadow:0 0 44px rgba(46,230,230,.5);">✓</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.36em;color:#2ee6e6;margin-bottom:16px;">ORDER CONFIRMED</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.36em;color:#2ee6e6;margin-bottom:16px;">ORDER RECEIVED</div>
       <h1 style="font-weight:500;font-size:38px;letter-spacing:-.02em;margin:0 0 16px;color:#f4fbfb;">Thank you, {{ firstName }}.</h1>
-      <p style="font-size:15px;line-height:1.6;color:#9fbabc;margin:0 0 32px;">We've received your order for <b style="color:#eaf6f7;font-weight:500;">{{ orderProduct }}</b> and simulated a charge of <b style="color:#eaf6f7;font-weight:500;">${{ charged }}</b>.</p>
+      <p style="font-size:15px;line-height:1.6;color:#9fbabc;margin:0 0 32px;">We've received your order for <b style="color:#eaf6f7;font-weight:500;">${{ charged }}</b> and your proof of payment. Your order is <b style="color:#eaf6f7;font-weight:500;">pending verification</b>.</p>
 
       <div style="border:1px solid rgba(46,230,230,.22);border-radius:12px;background:#0a0e13;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#7fa0a3;text-transform:uppercase;">Reference</span>
@@ -285,17 +236,17 @@
         <div style="flex:none;width:34px;height:34px;border-radius:8px;background:rgba(46,230,230,.12);display:flex;align-items:center;justify-content:center;color:#2ee6e6;font-size:16px;">✉</div>
         <div>
           <div style="font-weight:600;font-size:15px;color:#eaf6f7;margin-bottom:5px;">Check your email</div>
-          <div style="font-size:13.5px;line-height:1.55;color:#9fbabc;">A confirmation and next steps have been sent to <b style="color:#eaf6f7;font-weight:500;">{{ email }}</b>. Please check your inbox — and your spam folder.</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#9fbabc;">Once we verify your payment, a confirmation and next steps will be sent to <b style="color:#eaf6f7;font-weight:500;">{{ email }}</b>. Please check your inbox — and your spam folder.</div>
         </div>
       </div>
 
       <div onClick="{{ reset }}" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#5f7d80;cursor:pointer;border-bottom:1px solid rgba(95,125,128,.4);padding-bottom:2px;">← START OVER</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:#4d6669;margin-top:34px;">SIMULATED PAYMENT · NO REAL CHARGE WAS MADE</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:#4d6669;margin-top:34px;">ORDER CONFIRMED AFTER PROOF IS VERIFIED</div>
     </div>
   </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;motionSpeed&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:2.5,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0.2,&quot;max&quot;:2.5,&quot;step&quot;:0.1},&quot;accentGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;motionSpeed&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0.2,&quot;max&quot;:2.5,&quot;step&quot;:0.1},&quot;accentGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = {
     gateChecked: false,
@@ -303,9 +254,9 @@ class Component extends DCLogic {
     closing: false,
     entered: (() => { try { return localStorage.getItem('aurelia_age_ok') === '1'; } catch (e) { return false; } })(),
     done: false,
-    product: '',
-    orderProduct: '',
-    form: { email: '', first: '', last: '', phone: '', address: '', amount: '', card: '', exp: '', cvc: '', cardName: '' },
+    form: { email: '', first: '', last: '', phone: '', address: '', amount: '' },
+    proof: null,
+    proofUrl: '',
     touched: {},
     submitted: false,
     processing: false,
@@ -469,21 +420,28 @@ class Component extends DCLogic {
     }
   }
 
-  products() { return { KLOW: { name: 'KLOW', price: 180 }, RT15: { name: 'RT-15 10MG', price: 240 }, SS31: { name: 'SS-31', price: 210 }, CUSTOM: { name: 'Custom Order', custom: true } }; }
-  selectProduct(key) {
-    const p = this.products()[key];
-    if (p.custom) this.setState(s => ({ product: key, form: { ...s.form, amount: '' }, touched: { ...s.touched, amount: false } }));
-    else this.setState(s => ({ product: key, form: { ...s.form, amount: p.price.toFixed(2) }, touched: { ...s.touched, amount: true } }));
-  }
+  names() { return ['email', 'first', 'last', 'phone', 'address', 'amount']; }
+  allValid() { return !!this.state.proof && this.names().every(n => this.errFor(n) === ''); }
 
-  names() { return ['email', 'first', 'last', 'phone', 'address', 'amount', 'card', 'exp', 'cvc', 'cardName']; }
-  allValid() { return this.state.product !== '' && this.names().every(n => this.errFor(n) === ''); }
+  pickFile() { if (this.fileEl) this.fileEl.click(); }
+  onFile(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    if (this.state.proofUrl) { try { URL.revokeObjectURL(this.state.proofUrl); } catch (err) {} }
+    const url = file.type.indexOf('image/') === 0 ? URL.createObjectURL(file) : '';
+    this.setState(s => ({ proof: file, proofUrl: url, touched: { ...s.touched, proof: true } }));
+  }
+  clearFile() {
+    if (this.state.proofUrl) { try { URL.revokeObjectURL(this.state.proofUrl); } catch (err) {} }
+    if (this.fileEl) this.fileEl.value = '';
+    this.setState({ proof: null, proofUrl: '' });
+  }
+  fmtBytes(n) { if (n < 1024) return n + ' B'; if (n < 1048576) return (n / 1024).toFixed(0) + ' KB'; return (n / 1048576).toFixed(1) + ' MB'; }
 
   fillSample() {
     this.setState({
-      product: 'KLOW',
-      form: { email: 'j.okafor@aurelia-labs.example', first: 'Jordan', last: 'Okafor', phone: '(555) 012-3456', address: '100 Research Blvd, Cambridge, MA 02139', amount: '180.00', card: '4242 4242 4242 4242', exp: '08/28', cvc: '123', cardName: 'Jordan Okafor' },
-      touched: { email: true, first: true, last: true, phone: true, address: true, amount: true, card: true, exp: true, cvc: true, cardName: true }
+      form: { email: 'j.okafor@aurelia-labs.example', first: 'Jordan', last: 'Okafor', phone: '(555) 012-3456', address: '100 Research Blvd, Cambridge, MA 02139', amount: '250.00' },
+      touched: { email: true, first: true, last: true, phone: true, address: true, amount: true }
     });
   }
 
@@ -509,16 +467,16 @@ class Component extends DCLogic {
       const r = () => Math.random().toString(36).slice(2, 6).toUpperCase();
       const ref = 'AUR-' + r() + '-' + r();
       const charged = parseFloat(this.state.form.amount || 0).toFixed(2);
-      const orderProduct = (this.products()[this.state.product] || {}).name || 'your order';
-      this.setState({ processing: false, done: true, ref, charged, orderProduct });
+      this.setState({ processing: false, done: true, ref, charged });
       window.scrollTo(0, 0);
     }, 1700);
   }
 
   reset() {
     this.setState({
-      gateChecked: false, closing: false, entered: true, done: false, product: '', orderProduct: '',
-      form: { email: '', first: '', last: '', phone: '', address: '', amount: '', card: '', exp: '', cvc: '', cardName: '' },
+      gateChecked: false, closing: false, entered: true, done: false,
+      form: { email: '', first: '', last: '', phone: '', address: '', amount: '' },
+      proof: null, proofUrl: '',
       touched: {}, submitted: false, processing: false, ref: '', charged: ''
     });
     window.scrollTo(0, 0);
@@ -558,28 +516,30 @@ class Component extends DCLogic {
     v.notProcessing = !this.state.processing;
     v.submitOp = this.allValid() ? 1 : 0.5;
     const amt = parseFloat(f.amount);
-    v.payLabel = amt > 0 ? ('Pay $' + amt.toFixed(2)) : 'Complete order';
+    v.payLabel = amt > 0 ? ('Submit · $' + amt.toFixed(2)) : 'Submit order';
+
+    // ---- proof of payment ----
+    v.refFile = (el) => { this.fileEl = el; };
+    v.pickFile = () => this.pickFile();
+    v.on_file = (e) => this.onFile(e);
+    v.clearFile = () => this.clearFile();
+    v.hasProof = !!this.state.proof;
+    v.noProof = !this.state.proof;
+    v.show_proof = this.state.submitted && !this.state.proof;
+    v.proofName = this.state.proof ? this.state.proof.name : '';
+    v.proofSize = this.state.proof ? this.fmtBytes(this.state.proof.size) : '';
+    v.proofUrl = this.state.proofUrl;
+    v.proofIsImg = !!this.state.proofUrl;
+    v.proofIsDoc = !!this.state.proof && !this.state.proofUrl;
+    v.proofThumb = this.state.proofUrl
+      ? React.createElement('img', { src: this.state.proofUrl, alt: 'proof preview', style: { width: '100%', height: '100%', objectFit: 'cover' } })
+      : (this.state.proof ? React.createElement('span', { style: { color: '#2ee6e6', fontFamily: "'IBM Plex Mono',monospace", fontSize: '13px' } }, 'PDF') : null);
 
     v.ref = this.state.ref;
     v.charged = this.state.charged;
     v.firstName = this.state.form.first || 'there';
     v.email = this.state.form.email || 'your email';
     v.reset = () => this.reset();
-
-    // ---- product selection ----
-    const prod = this.state.product;
-    v.isCustom = prod === 'CUSTOM';
-    v.show_productErr = this.state.submitted && prod === '';
-    ['KLOW', 'RT15', 'SS31', 'CUSTOM'].forEach(k => {
-      v['select' + k] = () => this.selectProduct(k);
-      v['border' + k] = prod === k ? '#2ee6e6' : 'rgba(255,255,255,.12)';
-      v['bg' + k] = prod === k ? 'rgba(46,230,230,.08)' : '#0a0e13';
-      v['check' + k] = prod === k ? 1 : 0;
-    });
-    const pinfo = this.products()[prod];
-    v.orderSummaryLabel = pinfo ? pinfo.name : 'No product selected';
-    v.orderSummaryAmount = f.amount && parseFloat(f.amount) > 0 ? ('$' + parseFloat(f.amount).toFixed(2)) : '—';
-    v.orderProduct = this.state.orderProduct || 'your order';
     return v;
   }
 }
